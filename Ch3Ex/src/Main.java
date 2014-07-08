@@ -5,8 +5,8 @@ import org.w3c.dom.css.Rect;
  */
 
 class Rectangle {
-    int width;
-    int height;
+    private int width;
+    private int height;
 
     public Rectangle() {
         width = 0;
@@ -40,16 +40,18 @@ class Rectangle {
 }
 
 public class Main {
+
     public static void main(String[] args) {
-        int totalArea = 0;
 
         Rectangle a = new Rectangle(4, 5);
-        Rectangle b = new Rectangle(1, 2);
+        Rectangle b = new Rectangle(1, 10);
         Rectangle c = new Rectangle(3, 10);
 
-        totalArea = a.area() + b.area() + c.area();
+        int totalArea = a.area() + b.area() + c.area();
+
         //I decided to use a double here to avoid losing precision
         double avgArea = totalArea / 3.0;
-        System.out.println("The average total is " + avgArea);
+
+        System.out.println("The average area is " + avgArea);
     }
 }
