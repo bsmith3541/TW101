@@ -10,10 +10,11 @@ print them out once they guess correctly. Use an ArrayList to store the guesses.
  */
 public class GuessAgain {
     private int goal;
-    private ArrayList<String> guesses = new ArrayList<String>();
+    private ArrayList<String> guesses;
 
     public GuessAgain() {
         goal = (int) ((Math.random() * 100) + 1); // returns a number between 1 and 100
+        guesses = new ArrayList<String>();
     }
 
     public boolean compareGuess(int guess) {
