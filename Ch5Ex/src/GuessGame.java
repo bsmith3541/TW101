@@ -1,4 +1,6 @@
+import java.text.NumberFormat;
 import java.util.*;
+import java.io.*;
 
 /**
  * Created by brandonsmith on 7/7/14.
@@ -11,6 +13,37 @@ otherwise tell them if they guessed too high or low. Keep asking the user to gue
 Use classes to separate the different concerns of this program.
 
  */
+
+/* this class will take care of prompting the user on the command line
+   and parsing the answer for the game
+*/
+
+class Helper {
+
+    private String guess;
+    private int intGuess;
+
+    public int promptUser() {
+        System.out.println("Enter a guess: ");
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+            guess = br.readLine();
+            try {
+                intGuess = Integer.parseInt(guess);
+            } catch (NumberFormatException e) {
+                System.out.println("You need to enter a number!");
+                return 1000;
+            }
+        } catch (IOException e) {
+            System.out.println("There was an error reading your guess!");
+            System.exit(1);
+        }
+        return intGuess;
+    }
+}
+
 public class GuessGame {
     private int goal;
 
@@ -35,10 +68,21 @@ class Main {
     public static void main(String[] args) {
         GuessGame game = new GuessGame();
         boolean isCorrect = false;
+        int guess;
+
         while(!isCorrect) {
             // ask user for input
-            // compare input to the "goal" number
+            Helper prompter = new Helper();
+            guess = prompter.promptUser();
+
+            // 1000 is our "escape" code for an incorrect input of a non-number
+            // we don't want to display the usual messages if there is an incorrect input
+            if(guess != 1000) {
+                // compare input to the "goal" number
+                isCorrect = game.compareGuess(guess);
+            }
             // repeat until isCorrect is true
         }
+        System.out.println("Thanks for playing!");
     }
 }
