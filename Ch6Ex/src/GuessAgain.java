@@ -74,7 +74,7 @@ class Main {
                 // first we make sure the input was actually a number
                 intGuess = Integer.parseInt(guess);
 
-                // if the input is a number, we added to our ArrayList
+                // if the input is a number, we add it to our ArrayList
                 // parseInt turns the String into an int,
                 // so we need to return it to its string form
                 System.out.println(guess);

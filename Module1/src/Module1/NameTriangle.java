@@ -3,7 +3,7 @@ package Module1;
 /**
  * Created by brandonsmith on 7/16/14.
  */
-public class Diamond {
+public class NameTriangle {
     public void print_diamond(int height) {
         print_top(height);
         print_bottom(height);
@@ -11,6 +11,10 @@ public class Diamond {
 
     private void print_top(int height) {
         for(int i = 0; i < height; i++) {
+            if(i+1==height) {
+                System.out.println("Brandon");
+                break;
+            }
             print_spaces(height - (i + 1));
             print_stars((2*i) + 1);
             print_spaces(height - (i+1));
@@ -20,12 +24,12 @@ public class Diamond {
     }
 
     private void print_bottom(int height) {
-       for(int i = 0; i < height; i++) {
+        for(int i = 0; i < height; i++) {
             print_spaces(i + 1);
             print_stars((2*height) - (2 * (i+1)+1));
             print_spaces(i + 1);
             System.out.println();
-       }
+        }
     }
     private void print_spaces(int spaces) {
         for(int i = 0; i < spaces; i++) {
@@ -40,7 +44,7 @@ public class Diamond {
     }
 
     public static void main(String[] args) {
-        Diamond diamond = new Diamond();
-        diamond.print_diamond(7);
+        NameTriangle triangle = new NameTriangle();
+        triangle.print_diamond(7);
     }
 }
