@@ -24,6 +24,8 @@ public class Main {
 
         for (Monster monster : monsters) {
             monster.takeDamage(10);
+        }
+        for (Monster monster : monsters) {
             System.out.println(monster.name());
             System.out.println(monster.getHitpoints());
         }
